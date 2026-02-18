@@ -24,13 +24,16 @@ export default function Home() {
 
   const warpcastShareUrl = useMemo(() => {
     const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+    // Universal link: opens Warpcast app if installed; otherwise prompts install.
+    // This is the best we can do without an in-app SDK.
     const text = encodeURIComponent(
       [
         'I just minted a Cat Wizard 🧙🐈',
         '',
-        'Farcaster-native game project. NFT card = $CATWIZ allocation + airdrop eligibility.',
+        '3333 supply • 0.00006 ETH • Base',
+        'NFT card = $CATWIZ allocation + airdrop eligibility.',
         '',
-        `Mint yours: ${baseUrl}/mint`,
+        `Mint: ${baseUrl}/mint`,
       ].join('\n')
     );
     const embed = encodeURIComponent(`${baseUrl}/mint`);
@@ -112,7 +115,7 @@ export default function Home() {
 
             <div className={styles.shareGate}>
               <div className={styles.shareTitle}>Step 1 — Share to unlock mint</div>
-              <div className={styles.shareText}>{shareText || 'I minted a Lucky Ticket…'}</div>
+              <div className={styles.shareText}>{shareText}</div>
               <div className={styles.shareActions}>
                 <a
                   className={styles.shareBtn}

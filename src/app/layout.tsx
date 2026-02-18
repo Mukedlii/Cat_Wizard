@@ -13,12 +13,14 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 // instead of bouncing users out to Safari when they interact with the embed.
 const miniAppEmbed = {
   version: '1',
-  imageUrl: `${baseUrl}/frame.png`,
+  // image shown in the cast embed
+  imageUrl: `${baseUrl}/og.png`,
   button: {
     title: 'Mint',
     action: {
       type: 'launch_frame',
       name: 'Cat Wizard',
+      // IMPORTANT: keep /mint as a real page (no redirect), so Warpcast can resolve the embed
       url: `${baseUrl}/mint`,
       splashImageUrl: `${baseUrl}/splash.png`,
       splashBackgroundColor: '#0a0a12',
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Cat Wizard',
     description: 'Mint a Cat Wizard card on Base.',
-    images: ['/frame.png'],
+    images: ['/og.png'],
   },
   other: {
     // New (Mini Apps)

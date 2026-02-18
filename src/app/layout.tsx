@@ -7,7 +7,8 @@ import { Providers } from './providers';
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+const baseUrlRaw = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+const baseUrl = baseUrlRaw.replace(/\/+$/, ''); // no trailing slash
 
 // Mini App Embed (Frames v2 successor). This makes Warpcast open the app in an in-app modal
 // instead of bouncing users out to Safari when they interact with the embed.

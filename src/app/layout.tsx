@@ -14,7 +14,7 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 const miniAppEmbed = {
   version: '1',
   // image shown in the cast embed
-  imageUrl: `${baseUrl}/og.png`,
+  imageUrl: `${baseUrl}/catwizard.png`,
   button: {
     title: 'Mint',
     action: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Cat Wizard',
     description: 'Mint a Cat Wizard card on Base.',
-    images: ['/og.png'],
+    images: ['/catwizard.png'],
   },
   other: {
     // New (Mini Apps)
